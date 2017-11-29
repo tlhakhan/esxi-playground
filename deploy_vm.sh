@@ -38,9 +38,9 @@ mkdir /vmfs/volumes/"$DATASTORE"/"$VM_NAME"
 
 cat << EOF_vm_template > /vmfs/volumes/"$DATASTORE"/"$VM_NAME"/"$VM_NAME".vmx
 nvram = "$VM_NAME.nvram"
-sata0:0.fileName = "$ISO_IMAGE"
+sata0:0.fileName = "$(readlink -f "$ISO_IMAGE")"
 scsi0:0.fileName = "$VM_NAME.vmdk"
-guestOS = "$ISO_IMAGE"
+guestOS = "$GUEST_OS"
 displayName = "$VM_NAME"
 .encoding = "UTF-8"
 config.version = "8"
