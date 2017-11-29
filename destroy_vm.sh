@@ -3,6 +3,13 @@
 DATASTORE=$1
 VM_NAME=$2
 
+# check if arg length is 2
+if [[ $# -ne 2 ]]
+then
+	echo "Usage:  ./destroy_vm.sh [ datastore ] [vm name]"
+	exit 1
+fi
+
 # check if folder already exists
 if [[ ! -d /vmfs/volumes/"$DATASTORE"/"$VM_NAME" ]]
 then
