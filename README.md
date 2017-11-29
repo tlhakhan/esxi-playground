@@ -1,17 +1,17 @@
 # Repo: esxi-playground 
 - Scripts to create a vm playground on esxi hypervisors
 
-# Script: ./deploy_vm.sh
+## Script: ./deploy_vm.sh
 - Use this script to automatically deploy a small VM to specification listed in the heredoc template inside this shell script.
 - The VM will automatically power on and have the given ISO file mounted.
 
-## Usage
+### Usage
 ```
 [root@vs-00:~] ./deploy_vm.sh
 Usage: ./deploy_vms [datastore name] [vm name] [ iso file ] [ guest os: centos7-64 | centos-64 | ]
 ```
 
-### Example Output:  Successful VM Creation
+#### Example Output:  Successful VM Creation
 ```bash
 [root@vs-00:~] ./deploy_vm.sh vs-00-das repo-00 /vmfs/volumes/vs-00-das/image-repo/CentOS-7-x86_64-Everything-1708.iso centos7-64
 Info:  creating virtual machine repo-00
@@ -34,13 +34,13 @@ Vmid      Name                        File                         Guest OS     
 9      smos-01       [vs-00-das] smos-01/smos-01.vmx           solaris11_64Guest   vmx-13
 ```
 
-### Example Output:  VM Already Exists
+#### Example Output:  VM Already Exists
 ```bash
 [root@vs-00:~] ./deploy_vm.sh vs-00-das repo-00 /vmfs/volumes/vs-00-das/image-repo/CentOS-7-x86_64-Everything-1708.iso centos7-64
 Error:  virtual machine already exists.
 ```
 
-### Example Output: Invalid # of Arguments
+#### Example Output: Invalid # of Arguments
 ```bash
 [root@vs-00:~] ./deploy_vm.sh vs-00-das repo-00 /vmfs/volumes/vs-00-das/image-repo/CentOS-7-x86_64-Everything-1708.iso
 Usage: ./deploy_vms [datastore name] [vm name] [ iso file ] [ guest os: centos7-64 | centos-64 | ]
