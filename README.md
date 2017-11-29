@@ -46,6 +46,35 @@ Error:  virtual machine already exists.
 Usage: ./deploy_vms [datastore name] [vm name] [ iso file ] [ guest os: centos7-64 | centos-64 | ]
 ```
 
+## Script: ./destroy_vm.sh
+- Given the datastore and vm name, this script will unregister the VM and destroy the VM.
+
+### Usage:
+```bash
+[root@vs-00:~] ./destroy_vm.sh
+Usage:  ./destroy_vm.sh [ datastore ] [vm name]
+```
+
+#### Example Output:
+
+```bash
+Info:  List of all VMs.
+Vmid      Name                        File                         Guest OS        Version   Annotation
+10     centos-00     [vs-00-das] centos-00/centos-00.vmx       centos7_64Guest     vmx-13
+11     centos-01     [vs-00-das] centos-01/centos-01.vmx       centos7_64Guest     vmx-13
+29     nagios-00     [vs-00-das] nagios-00/nagios-00.vmx       centos7_64Guest     vmx-13
+30     repo-00       [vs-00-das] repo-00/repo-00.vmx           centos7_64Guest     vmx-13
+31     dummy-00      [vs-00-das] dummy-00/dummy-00.vmx         centos7_64Guest     vmx-13
+6      firewall-00   [vs-00-das] firewall-00/firewall-00.vmx   freebsd64Guest      vmx-13
+8      smos-00       [vs-00-das] smos-00/smos-00.vmx           solaris11_64Guest   vmx-13
+9      smos-01       [vs-00-das] smos-01/smos-01.vmx           solaris11_64Guest   vmx-13
+
+[root@vs-00:~] ./destroy_vm.sh vs-00-das dummy-00
+Powering off VM:
+Info:  Successfully unregistered dummy-00
+Info: Successfully destroyed dummy-00
+```
+
 # plans
 
 done:
