@@ -1,9 +1,10 @@
 ## Repo: esxi-playground 
 - Scripts to create a virtual machine playground on esxi hypervisors.
-- The below scripts can be placed on your esxi hypervisor server.  Please keep use primarily for development/testing.
+- The below scripts can be placed on your esxi hypervisor server.  
   - [deploy_vm.sh](#deploy_vmsh)
   - [destroy_vm.sh](#destroy_vmsh)
   - [reset_vm.sh](#reset_vmsh)
+- Please use only for development/testing.  These scripts are used for my ESXi home lab virtual machine deployments.
 
 ## deploy_vm.sh
 - The `deploy_vm.sh` script will deploy a small VM to [specification listed in the heredoc template](https://github.com/tlhakhan/esxi-playground/blob/master/deploy_vm.sh#L39) inside this shell script.
