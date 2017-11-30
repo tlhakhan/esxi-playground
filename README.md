@@ -75,18 +75,46 @@ Info:  Successfully unregistered dummy-00
 Info: Successfully destroyed dummy-00
 ```
 
-# plans
+## Script: ./reset_vm.sh
 
-done:
-* got vm deploy script working - easily create templatized centos vms for home lab
-* got vm destroy script working
-* got snapshot revert - go back to last working good vm state, good for ansible script testing.
+### Usage:
+- Given the virtual machine name revert to the most recent snapshot.  If a snapshot is not present, the reset_vm.sh will create an initial snapshot with the name and description snap0.
 
-todo:
-* get ipxe server setup for net-install
-* create centos 7 mirror
-* create pkgsrc mirror
+```bash
+[root@vs-00:~] ./reset_vm.sh
+Usage ./reset_vm.sh [ vm name ]
+```
 
-ideas:
-* zfs + snapshot + torrent
-* zfs on linux
+#### Example Output: VM with no snapshots
+```bash
+[root@vs-00:~] ./reset_vm.sh nagios-00
+Warn:  Unable to find a snapshot on the virtual machine.
+Info:  Creating an initial snapshot.
+Create Snapshot:
+Get Snapshot:
+|-ROOT
+--Snapshot Name        : snap0
+--Snapshot Id        : 5
+--Snapshot Desciption  : snap0
+--Snapshot Created On  : 11/29/2017 23:59:6
+--Snapshot State       : powered on
+```
+
+### Example Output:  VM with an recent snapshot
+```bash
+[root@vs-00:~] ./reset_vm.sh nagios-00
+Info:  Reverting VM to most recent snapshot.
+Revert Snapshot:
+|-ROOT
+--Snapshot Name        : snap0
+--Snapshot Id        : 5
+--Snapshot Desciption  : snap0
+--Snapshot Created On  : 11/29/2017 23:59:6
+--Snapshot State       : powered on
+--|-CHILD
+----Snapshot Name        : finish_naigos_install
+----Snapshot Id        : 6
+----Snapshot Desciption  : install done
+----Snapshot Created On  : 11/30/2017 0:0:4
+----Snapshot State       : powered on
+```
