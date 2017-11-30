@@ -1,17 +1,18 @@
 ## Repo: esxi-playground 
-- Scripts to create a vm playground on esxi hypervisors
+- Scripts to create a virtual machine playground on esxi hypervisors.
+- The below scripts can be placed on your esxi hypervisor server.  Please keep use primarily for development/testing.
   - [deploy_vm.sh](#deploy_vmsh)
   - [destroy_vm.sh](#destroy_vmsh)
   - [reset_vm.sh](#reset_vmsh)
 
 ## deploy_vm.sh
-- Use this script to automatically deploy a small VM to specification listed in the heredoc template inside this shell script.
-- The VM will automatically power on and have the given ISO file mounted.
+- The `deploy_vm.sh` script will deploy a small VM to [specification listed in the heredoc template](https://github.com/tlhakhan/esxi-playground/blob/master/deploy_vm.sh#L39) inside this shell script.
+- The virtual machine will automatically power on and have the given ISO file mounted.
 
 ### Usage
 ```
 [root@vs-00:~] ./deploy_vm.sh
-Usage: ./deploy_vms [datastore name] [vm name] [ iso file ] [ guest os: centos7-64 | centos-64 | ]
+Usage: ./deploy_vms [datastore name] [vm name] [ iso file ] [ guest os: centos7-64 | centos-64 | other ]
 ```
 
 #### Example Output:  Successful VM Creation
@@ -50,7 +51,7 @@ Usage: ./deploy_vms [datastore name] [vm name] [ iso file ] [ guest os: centos7-
 ```
 
 ## destroy_vm.sh
-- Given the datastore and vm name, this script will unregister the VM and destroy the VM.
+- Given the datastore and vm name, the `destroy_vm.sh` script will unregister the virtual machine and destroy the virtual machine folder on the datastore.
 
 ### Usage:
 ```bash
@@ -81,7 +82,8 @@ Info: Successfully destroyed dummy-00
 ## reset_vm.sh
 
 ### Usage:
-- Given the virtual machine name revert to the most recent snapshot.  If a snapshot is not present, the reset_vm.sh will create an initial snapshot with the name and description snap0.
+- Given the virtual machine name, revert to the most recent snapshot.  
+  - If a snapshot is not present, the `reset_vm.sh` script will create an initial snapshot with the name and description snap0.  The snapshot will retain powered on state and running memory state.
 
 ```bash
 [root@vs-00:~] ./reset_vm.sh
