@@ -103,7 +103,7 @@ Get Snapshot:
 --Snapshot State       : powered on
 ```
 
-### Example Output:  VM with an recent snapshot
+#### Example Output:  VM with an recent snapshot
 ```bash
 [root@vs-00:~] ./reset_vm.sh nagios-00
 Info:  Reverting VM to most recent snapshot.
