@@ -1,7 +1,10 @@
-# Repo: esxi-playground 
+## Repo: esxi-playground 
 - Scripts to create a vm playground on esxi hypervisors
+  - [deploy_vm.sh](#deploy_vmsh)
+  - [destroy_vm.sh](#destroy_vmsh)
+  - [reset_vm.sh](#reset_vmsh)
 
-## Script: ./deploy_vm.sh
+## deploy_vm.sh
 - Use this script to automatically deploy a small VM to specification listed in the heredoc template inside this shell script.
 - The VM will automatically power on and have the given ISO file mounted.
 
@@ -46,7 +49,7 @@ Error:  virtual machine already exists.
 Usage: ./deploy_vms [datastore name] [vm name] [ iso file ] [ guest os: centos7-64 | centos-64 | ]
 ```
 
-## Script: ./destroy_vm.sh
+## destroy_vm.sh
 - Given the datastore and vm name, this script will unregister the VM and destroy the VM.
 
 ### Usage:
@@ -75,7 +78,7 @@ Info:  Successfully unregistered dummy-00
 Info: Successfully destroyed dummy-00
 ```
 
-## Script: ./reset_vm.sh
+## reset_vm.sh
 
 ### Usage:
 - Given the virtual machine name revert to the most recent snapshot.  If a snapshot is not present, the reset_vm.sh will create an initial snapshot with the name and description snap0.
