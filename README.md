@@ -1,6 +1,8 @@
 ## Repo: esxi-playground 
-- Scripts to create a virtual machine playground on esxi hypervisors.
-- The below scripts can be placed on your esxi hypervisor server.  
+- Scripts to create a virtual machine playground on ESXi hypervisors.  Useful for homelab environments, where setting up vCenter is frowned upon and free ESXi licenses are readily available.  
+- The ESXi hypervisor is of great interest to me, it is a very lightweight and purpose-built OS.  
+  - There are design/architecture patterns from good OS engineers at VMware that are worth incorporating into my own thinking.
+- The below scripts can be placed on your esxi hypervisor server.
   - [deploy_vm.sh](#deploy_vmsh)
   - [destroy_vm.sh](#destroy_vmsh)
   - [reset_vm.sh](#reset_vmsh)
